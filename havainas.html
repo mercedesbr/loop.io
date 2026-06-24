@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Havaianas LOOP — Propuesta de Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,800;0,900;1,700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E8202A;
+    --yellow: #F5C800;
+    --green: #2E8B3F;
+    --blue: #1A6BBE;
+    --black: #111111;
+    --white: #FFFFFF;
+    --light: #F7F7F7;
+    --mid: #E5E5E5;
+    --text: #222222;
+    --muted: #666666;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--white); border-bottom: 3px solid var(--red);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 64px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-hav { font-family: 'Nunito', sans-serif; font-weight: 900; font-style: italic; color: var(--red); font-size: 1.5rem; }
+  .nav-divider { width: 1px; height: 28px; background: var(--mid); }
+  .nav-loop { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: 2px; }
+  .nav-loop span:nth-child(1) { color: var(--red); }
+  .nav-loop span:nth-child(2) { color: var(--yellow); }
+  .nav-loop span:nth-child(3) { color: var(--green); }
+  .nav-loop span:nth-child(4) { color: var(--blue); }
+  .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--black); font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--red); }
+
+  /* HERO */
+  #hero { margin-top: 64px; min-height: calc(100vh - 64px); display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+  .hero-bg-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle, #ccc 1px, transparent 1px); background-size: 28px 28px; opacity: 0.3; z-index: 0; }
+  .hero-left { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem 5rem 5rem; background: var(--white); }
+  .hero-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; display: block; }
+  .hero-logo-big { display: flex; margin-bottom: 0.5rem; line-height: 0.9; }
+  .hero-logo-big span { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(5rem, 10vw, 9rem); display: block; }
+  .hero-logo-big span:nth-child(1) { color: var(--red); }
+  .hero-logo-big span:nth-child(2) { color: var(--yellow); }
+  .hero-logo-big span:nth-child(3) { color: var(--green); }
+  .hero-logo-big span:nth-child(4) { color: var(--blue); }
+  .hero-by { font-family: 'Nunito', sans-serif; font-style: italic; font-weight: 700; color: var(--red); font-size: 1.5rem; margin-bottom: 2.5rem; }
+  .hero-btn { display: inline-block; background: var(--red); color: var(--white); padding: 1.1rem 2.5rem; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; width: fit-content; }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-right::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--white) 0%, transparent 25%); }
+
+  /* SECTION BASE */
+  section { scroll-margin-top: 64px; padding: 7rem 5rem; }
+  .section-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1; color: var(--black); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .red-line { display: block; width: 3rem; height: 4px; background: var(--red); margin-bottom: 2.5rem; }
+
+  /* PROPUESTA */
+  #propuesta { background: var(--white); }
+  .propuesta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 1rem; align-items: start; }
+  .propuesta-tagline { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--red); text-transform: uppercase; margin-bottom: 2rem; line-height: 1.1; }
+  .propuesta-text p { font-size: 1rem; line-height: 1.75; color: var(--text); margin-bottom: 1.25rem; }
+  .propuesta-text strong { font-weight: 700; }
+  .propuesta-quote { border-left: 4px solid var(--red); padding: 1rem 1.5rem; margin: 2rem 0; font-style: italic; font-weight: 700; font-size: 1.05rem; color: var(--red); background: rgba(232,32,42,0.04); }
+  .prop-cards { display: flex; flex-direction: column; gap: 1.25rem; }
+  .prop-card { background: var(--white); border: 2px solid var(--mid); padding: 1.5rem; border-left: 4px solid var(--yellow); }
+  .prop-card:nth-child(2) { border-left-color: var(--green); }
+  .prop-card:nth-child(3) { border-left-color: var(--blue); }
+  .prop-card-title { font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .prop-card p { font-size: 0.92rem; line-height: 1.65; color: var(--muted); }
+
+  /* FULL-WIDTH IMAGE BAND */
+  .img-band { width: 100%; height: 380px; object-fit: cover; object-position: center bottom; display: block; }
+
+  /* VALOR */
+  #valor { background: var(--black); color: var(--white); }
+  #valor .section-title { color: var(--white); }
+  .valor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1rem; }
+  .valor-item { padding: 2rem; border-top: 3px solid var(--red); background: rgba(255,255,255,0.04); }
+  .valor-num { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 3.5rem; color: var(--red); line-height: 1; margin-bottom: 0.5rem; }
+  .valor-item h3 { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; color: var(--yellow); font-weight: 700; }
+  .valor-item p { font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.75); }
+
+  /* ENTORNO */
+  #entorno { background: var(--light); padding-bottom: 0; }
+  .entorno-intro { max-width: 600px; font-size: 1rem; line-height: 1.7; color: var(--muted); margin-bottom: 3rem; }
+
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 0 -5rem;
+  }
+  .macro-card {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid var(--mid);
+    background: var(--white);
+  }
+  .macro-card:last-child { border-right: none; }
+  .macro-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+  .macro-card h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: var(--black); }
+  .macro-card p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
+
+  /* TECH / SOCIAL MEDIA CARD */
+  .macro-card.tech-card { background: var(--black); color: var(--white); border-right-color: #333; }
+  .macro-card.tech-card h3 { color: var(--yellow); }
+  .macro-card.tech-card p { color: rgba(255,255,255,0.7); }
+  .social-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0; }
+  .social-pill { display: flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; }
+  .pill-tiktok { background: #010101; color: #fff; border: 1px solid #333; }
+  .pill-ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: #fff; }
+  .pill-pinterest { background: #E60023; color: #fff; }
+  .tiktok-embed-wrap { margin-top: 1rem; border-radius: 12px; overflow: hidden; }
+
+  /* MICRO ENTORNO */
+  #microentorno { background: var(--white); }
+  .micro-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem; }
+  .micro-card { padding: 2rem; background: var(--light); border-top: 3px solid var(--red); }
+  .micro-card h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: var(--black); display: flex; align-items: center; gap: 0.5rem; }
+  .micro-card p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
+
+  /* COMPETENCIA */
+  #competencia { background: var(--light); }
+  .competencia-intro { max-width: 680px; font-size: 1rem; line-height: 1.75; color: var(--muted); margin-bottom: 2.5rem; }
+  .comp-table { width: 100%; border-collapse: collapse; margin-bottom: 2.5rem; }
+  .comp-table th { background: var(--black); color: var(--white); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; padding: 1rem 1.25rem; text-align: left; font-weight: 700; }
+  .comp-table td { padding: 1rem 1.25rem; font-size: 0.9rem; border-bottom: 1px solid var(--mid); vertical-align: top; line-height: 1.55; background: var(--white); }
+  .comp-table tr:nth-child(even) td { background: var(--light); }
+  .comp-table tr.loop-row td { background: rgba(232,32,42,0.06); font-weight: 700; color: var(--red); }
+  .badge { display: inline-block; padding: 0.2rem 0.6rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+  .badge-yes { background: #d4edda; color: #155724; }
+  .badge-no { background: #f8d7da; color: #721c24; }
+  .comp-quote { border-left: 4px solid var(--red); padding: 1rem 1.5rem; font-style: italic; font-weight: 700; font-size: 1rem; color: var(--red); background: rgba(232,32,42,0.04); max-width: 700px; }
+
+  /* SEGMENTO */
+  #segmento { background: var(--black); color: var(--white); }
+  #segmento .section-title { color: var(--white); }
+  #segmento .section-label { color: var(--yellow); }
+  #segmento .red-line { background: var(--yellow); }
+  .segmento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem; }
+  .seg-card { padding: 2rem; background: rgba(255,255,255,0.05); border-bottom: 3px solid var(--yellow); }
+  .seg-card h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
+  .seg-card p { font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.75); }
+  .perfil-box { margin-top: 2.5rem; padding: 2.5rem; background: var(--red); color: var(--white); }
+  .perfil-box h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+  .perfil-box p { font-size: 0.95rem; line-height: 1.75; }
+
+  /* POSICIONAMIENTO */
+  #posicionamiento { background: var(--white); }
+  .pos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 1rem; align-items: start; }
+  .pos-declaracion { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(1.2rem, 1.8vw, 1.7rem); line-height: 1.25; color: var(--black); margin-bottom: 1.5rem; }
+  .pos-declaracion em { font-style: normal; color: var(--red); }
+  .pos-text p { font-size: 0.95rem; line-height: 1.75; color: var(--muted); margin-bottom: 1.25rem; }
+  .pos-text strong { color: var(--black); font-weight: 700; }
+  .matriz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+  .matriz-box { padding: 1.75rem; background: var(--light); border-top: 3px solid var(--black); }
+  .matriz-box h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; }
+  .matriz-tag { display: inline-block; padding: 0.3rem 0.8rem; background: var(--yellow); color: var(--black); font-weight: 800; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem; }
+  .matriz-box p { font-size: 0.88rem; line-height: 1.7; color: var(--muted); }
+  .dif-list { display: flex; flex-direction: column; gap: 1rem; }
+  .dif-item { display: grid; grid-template-columns: 40px 1fr; gap: 1rem; align-items: start; padding: 1.25rem; border: 1px solid var(--mid); }
+  .dif-dot { width: 36px; height: 36px; background: var(--red); color: var(--white); font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; text-align: center; line-height: 1.2; }
+  .dif-content h4 { font-weight: 800; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.35rem; }
+  .dif-content p { font-size: 0.87rem; line-height: 1.6; color: var(--muted); }
+
+  /* 4P */
+  #cuatro-p { background: var(--light); }
+  .fourp-tabs { display: flex; margin-bottom: 2.5rem; border-bottom: 3px solid var(--mid); }
+  .tab-btn { padding: 1rem 2rem; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; background: none; border: none; cursor: pointer; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -3px; transition: all 0.2s; }
+  .tab-btn.active { color: var(--red); border-bottom-color: var(--red); }
+  .tab-btn:hover { color: var(--red); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .fourp-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .fourp-text h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem; text-transform: uppercase; color: var(--black); margin-bottom: 1.5rem; }
+  .fourp-text p { font-size: 0.92rem; line-height: 1.75; color: var(--muted); margin-bottom: 1.25rem; }
+  .fourp-text strong { color: var(--black); font-weight: 700; }
+  .fourp-img { width: 100%; display: block; object-fit: cover; }
+
+  /* ESTRATEGIAS */
+  #estrategias { background: var(--white); }
+  .estrategias-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 1rem; }
+  .estrat-card { padding: 2.5rem; }
+  .estrat-card.push { background: var(--black); color: var(--white); }
+  .estrat-card.pull { background: var(--red); color: var(--white); }
+  .estrat-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; opacity: 0.7; }
+  .estrat-title { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 2.5rem; text-transform: uppercase; line-height: 1; margin-bottom: 1.5rem; }
+  .estrat-card p { font-size: 0.95rem; line-height: 1.75; opacity: 0.9; margin-bottom: 1rem; }
+  .estrat-card ul { padding-left: 1.25rem; }
+  .estrat-card ul li { font-size: 0.9rem; line-height: 1.7; opacity: 0.85; margin-bottom: 0.4rem; }
+
+  /* CANALES */
+  #canales { background: var(--light); }
+  .canales-intro { max-width: 640px; font-size: 1rem; line-height: 1.75; color: var(--muted); margin-bottom: 3rem; }
+  .canales-two { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .canal-block h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; padding-bottom: 0.75rem; border-bottom: 3px solid var(--red); }
+  .canal-block > p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); margin: 1rem 0 1.5rem; }
+  .canal-items { display: flex; flex-direction: column; gap: 0.75rem; }
+  .canal-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.25rem; background: var(--white); border-left: 3px solid var(--green); }
+  .canal-item:nth-child(2) { border-left-color: var(--blue); }
+  .canal-item:nth-child(3) { border-left-color: var(--yellow); }
+  .canal-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .canal-item h4 { font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.25rem; }
+  .canal-item p { font-size: 0.82rem; line-height: 1.55; color: var(--muted); }
+
+  .cobertura-box { margin-top: 3rem; background: var(--white); padding: 2.5rem; border-top: 4px solid var(--black); }
+  .cobertura-box h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem; }
+  .cobertura-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .cob-item { padding: 1.25rem; text-align: center; background: var(--light); border-bottom: 3px solid var(--red); }
+  .cob-item:nth-child(2) { border-bottom-color: var(--yellow); }
+  .cob-item:nth-child(3) { border-bottom-color: var(--green); }
+  .cob-item:nth-child(4) { border-bottom-color: var(--blue); }
+  .cob-icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+  .cob-item h4 { font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .cob-item p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+  /* PRECIO */
+  .canal-zones { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .canal-zone { padding: 1.25rem; border-left: 3px solid var(--green); background: var(--white); }
+  .canal-zone:nth-child(2) { border-left-color: var(--blue); }
+  .canal-zone:nth-child(3) { border-left-color: var(--red); }
+  .canal-zone:nth-child(4) { border-left-color: var(--yellow); }
+  .canal-zone h4 { font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .canal-zone p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+  .precio-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .precio-box { padding: 1.5rem; background: var(--white); text-align: center; border-top: 3px solid var(--mid); }
+  .precio-box.hl { border-top-color: var(--red); }
+  .precio-monto { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 2rem; color: var(--black); }
+  .precio-box.hl .precio-monto { color: var(--red); }
+  .precio-lbl { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-top: 0.4rem; }
+  .precio-highlight { background: var(--red); color: var(--white); padding: 1.75rem; margin-top: 1.5rem; }
+  .precio-highlight h4 { font-family: 'Nunito', sans-serif; font-weight: 900; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .precio-highlight p { font-size: 0.9rem; line-height: 1.7; }
+
+  /* FOOTER */
+  footer { background: var(--black); padding: 3rem 5rem; color: rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: space-between; }
+  footer p { font-size: 0.78rem; letter-spacing: 0.5px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="nav-hav">havaianas</span>
+    <div class="nav-divider"></div>
+    <span class="nav-loop"><span>L</span><span>O</span><span>O</span><span>P</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#propuesta">Propuesta</a></li>
+    <li><a href="#valor">Valor</a></li>
+    <li><a href="#entorno">Entorno</a></li>
+    <li><a href="#competencia">Competencia</a></li>
+    <li><a href="#segmento">Segmento</a></li>
+    <li><a href="#posicionamiento">Posicionamiento</a></li>
+    <li><a href="#estrategias">Estrategias</a></li>
+    <li><a href="#canales">Canales</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-left">
+    <span class="hero-eyebrow">Propuesta de Marketing · Havaianas Argentina</span>
+    <div class="hero-logo-big">
+      <span>L</span><span>O</span><span>O</span><span>P</span>
+    </div>
+    <p class="hero-by">by havaianas</p>
+    <div class="hero-btn">WEAR &nbsp;·&nbsp; REPLACE &nbsp;·&nbsp; REPEAT</div>
+  </div>
+  <div class="hero-right">
+    <img src="img_wall.jpg" alt="Havaianas coloridas">
+  </div>
+</section>
+
+<!-- PROPUESTA -->
+<section id="propuesta">
+  <span class="section-label">01 — Propuesta</span>
+  <h2 class="section-title">UN SOLO PAR.<br>MIL ESTILOS.<br>CERO IMPACTO.</h2>
+  <span class="red-line"></span>
+  <div class="propuesta-grid">
+    <div class="propuesta-text">
+      <p>Creamos un ecosistema 100% circular donde la sustentabilidad se cruza con el diseño de manera innovadora. Las Havaianas Loop son un calzado camaleónico y adaptable que busca brindar infinitos estilos en un solo par.</p>
+      <p>La idea es simple: <strong>la suela permanece, las tiras se cambian.</strong> Al desacoplar los componentes, Loop ofrece una base de alta resistencia diseñada para durar entre 5 y 8 años, separada de las tiras que podés renovar según el outfit, el plan o el humor del día.</p>
+      <p>No es solo calzado. Es un sistema que te da la libertad de reinventarte cada vez que querés, sin comprar un par nuevo. Una compra inteligente, sin límites de estilo.</p>
+      <blockquote class="propuesta-quote">"El usuario ya no compra un producto perecedero, sino que adquiere un objeto funcional que permanece con él a través del tiempo."</blockquote>
+    </div>
+    <div class="prop-cards">
+      <div class="prop-card">
+        <div class="prop-card-title">🌿 Sostenibilidad y Longevidad</div>
+        <p>Loop permite adquirir nuevas tiras conservando la suela, reduciendo drásticamente el desperdicio de polímeros y caucho. Una suela que dura entre 5 y 8 años es una suela que no termina en la basura.</p>
+      </div>
+      <div class="prop-card">
+        <div class="prop-card-title">🎨 Versatilidad Estética</div>
+        <p>Tiras clásicas para la playa, metalizadas para salir a la noche, con apliques para un look especial. Loop te permite "estrenar" calzado simplemente cambiando el diseño de las tiras, sin gastar en un par entero.</p>
+      </div>
+      <div class="prop-card">
+        <div class="prop-card-title">💡 Bajo Costo de Adopción</div>
+        <p>Respaldada por una marca en la que los consumidores ya confían. No exige cambiar hábitos de forma drástica y genera fidelización a través de una relación de largo plazo con la marca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE BAND -->
+<img src="img_product.jpg" alt="Loop productos" class="img-band">
+
+<!-- VALOR -->
+<section id="valor">
+  <span class="section-label">02 — Propuesta de Valor</span>
+  <h2 class="section-title">Por qué Loop<br>es diferente.</h2>
+  <span class="red-line"></span>
+  <div class="valor-grid">
+    <div class="valor-item">
+      <div class="valor-num">01</div>
+      <h3>Versatilidad Total</h3>
+      <p>Un mismo par para la playa, el almuerzo, la tarde y la noche. Cada cambio de tiras es un look nuevo sin abrir la billetera. La ojota que se adapta a vos, no al revés.</p>
+    </div>
+    <div class="valor-item">
+      <div class="valor-num">02</div>
+      <h3>Económico</h3>
+      <p>La inversión inicial se amortiza rápidamente. Las tiras de repuesto cuestan significativamente menos que un par nuevo, convirtiendo a Loop en la opción más conveniente a largo plazo.</p>
+    </div>
+    <div class="valor-item">
+      <div class="valor-num">03</div>
+      <h3>Social</h3>
+      <p>El sistema de tiras intercambiables se convierte en un iniciador de conversación. Su diseño invita a ser observado y explicado, generando un intercambio basado en la innovación y el estilo personal.</p>
+    </div>
+    <div class="valor-item">
+      <div class="valor-num">04</div>
+      <h3>Modelo Razor &amp; Blade</h3>
+      <p>La ganancia sostenida proviene del consumible recurrente (las tiras), no del producto base. El usuario adquiere la suela una vez y mantiene una interacción frecuente con la marca.</p>
+    </div>
+    <div class="valor-item">
+      <div class="valor-num">05</div>
+      <h3>Identidad de Marca</h3>
+      <p>Loop capitaliza el poder simbólico de Havaianas —libertad, verano, Brasil— y le añade una capa nueva: circularidad, consumo consciente e inteligencia de diseño.</p>
+    </div>
+    <div class="valor-item">
+      <div class="valor-num">06</div>
+      <h3>Fidelización</h3>
+      <p>El usuario compra la base una vez y mantiene interacción frecuente con la marca mediante el recambio de tiras. Una relación de largo plazo que genera pertenencia y compromiso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MACROENTORNO -->
+<section id="entorno">
+  <span class="section-label">03 — Análisis del Entorno</span>
+  <h2 class="section-title">Contexto &amp;<br>Oportunidad.</h2>
+  <span class="red-line"></span>
+  <p class="entorno-intro">En toda decisión comercial existe un contexto que la condiciona. Para Loop, distinguimos dos niveles: el macroentorno y el microentorno.</p>
+
+  <div style="margin: 0 -5rem;">
+    <div style="background: var(--red); padding: 1rem 5rem;">
+      <span style="font-family:'Nunito',sans-serif; font-weight:900; font-size:0.7rem; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.8);">Macroentorno</span>
+    </div>
+    <div class="macro-grid">
+      <!-- Económico -->
+      <div class="macro-card">
+        <span class="macro-icon">💰</span>
+        <h3>Económico y Social</h3>
+        <p>El contexto argentino opera paradójicamente como amenaza y oportunidad. La pérdida sostenida del poder adquisitivo obliga al consumidor a ser más cuidadoso e inteligente con sus gastos — y Loop ofrece exactamente eso: más estilo, menos gasto acumulado.</p>
+      </div>
+      <!-- Tecnológico / Social Media -->
+      <div class="macro-card tech-card">
+        <span class="macro-icon">📱</span>
+        <h3>Tecnológico</h3>
+        <p>Las redes sociales se convirtieron en el epicentro de las tendencias de moda circular. Millones de usuarios comparten outfits, hauls y "get ready with me" todos los días.</p>
+        <div class="social-pills">
+          <span class="social-pill pill-tiktok">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            TikTok
+          </span>
+          <span class="social-pill pill-ig">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </span>
+          <span class="social-pill pill-pinterest">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            Pinterest
+          </span>
+        </div>
+        <p style="font-size:0.82rem;">Los GRWM ("get ready with me"), hauls de tiras y reels de outfits son el canal natural de Loop — contenido que se genera solo cuando el producto enamora.</p>
+        <!-- TikTok embed -->
+        <div class="tiktok-embed-wrap">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@verenamtza/video/7508466353410510088" data-video-id="7508466353410510088" style="max-width: 605px;min-width: 325px;">
+            <section>
+              <a target="_blank" title="@verenamtza" href="https://www.tiktok.com/@verenamtza?refer=embed">@verenamtza</a> les dije que era un <a title="chanclasummer" target="_blank" href="https://www.tiktok.com/tag/chanclasummer?refer=embed">#chanclasummer</a> !!🩴  outfit inspo con mis flip flops  <a title="styling" target="_blank" href="https://www.tiktok.com/tag/styling?refer=embed">#styling</a> <a title="chanclas" target="_blank" href="https://www.tiktok.com/tag/chanclas?refer=embed">#chanclas</a> <a title="havaianas" target="_blank" href="https://www.tiktok.com/tag/havaianas?refer=embed">#havaianas</a> <a title="outfits" target="_blank" href="https://www.tiktok.com/tag/outfits?refer=embed">#outfits</a> <a title="ideas" target="_blank" href="https://www.tiktok.com/tag/ideas?refer=embed">#ideas</a> <a title="grwm" target="_blank" href="https://www.tiktok.com/tag/grwm?refer=embed">#grwm</a> <a title="ootd" target="_blank" href="https://www.tiktok.com/tag/ootd?refer=embed">#ootd</a> <a title="diy" target="_blank" href="https://www.tiktok.com/tag/diy?refer=embed">#diy</a> <a target="_blank" title="♬ kendrick lamar x james brown by blaccmass - Joe Kay" href="https://www.tiktok.com/music/kendrick-lamar-x-james-brown-by-blaccmass-7397593646499105582?refer=embed">♬ kendrick lamar x james brown by blaccmass - Joe Kay</a>
+            </section>
+          </blockquote>
+          <script async src="https://www.tiktok.com/embed.js"></script>
+          <!-- Fallback visual si el embed no carga -->
+          <div style="background:#1a1a1a; border-radius:8px; padding:1.5rem; text-align:center; margin-top:0.5rem;">
+            <div style="font-size:2rem; margin-bottom:0.5rem;">🎵</div>
+            <p style="color:rgba(255,255,255,0.6); font-size:0.78rem; line-height:1.5;">Campañas de GRWM, hauls de tiras y reels de outfits en <strong style="color:white;">@havaianas</strong> generan alcance orgánico masivo entre el público objetivo.</p>
+            <div style="display:flex; justify-content:center; gap:1rem; margin-top:1rem; flex-wrap:wrap;">
+              <span style="background:#E8202A; color:white; padding:0.3rem 0.8rem; border-radius:4px; font-size:0.72rem; font-weight:700;">#HavainanasLoop</span>
+              <span style="background:#E8202A; color:white; padding:0.3rem 0.8rem; border-radius:4px; font-size:0.72rem; font-weight:700;">#GRWM</span>
+              <span style="background:#E8202A; color:white; padding:0.3rem 0.8rem; border-radius:4px; font-size:0.72rem; font-weight:700;">#OutfitIdeas</span>
+              <span style="background:#E8202A; color:white; padding:0.3rem 0.8rem; border-radius:4px; font-size:0.72rem; font-weight:700;">#ModaCircular</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ecológico -->
+      <div class="macro-card">
+        <span class="macro-icon">🌍</span>
+        <h3>Ecológico</h3>
+        <p>La preocupación por el impacto ambiental de lo que se consume y descarta es un tema común. Las ojotas de goma son productos que, en su formato tradicional, terminan en la basura. Loop llega como una respuesta directa: al extender la vida útil del calzado, reduce de forma concreta la generación de residuos plásticos y conecta con un consumidor que ya está buscando activamente alternativas más responsables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MICROENTORNO -->
+<section id="microentorno" style="padding-top: 5rem;">
+  <div style="background: var(--black); padding: 1rem 5rem; margin: 0 -5rem;">
+    <span style="font-family:'Nunito',sans-serif; font-weight:900; font-size:0.7rem; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.7);">Microentorno</span>
+  </div>
+  <div style="height:2rem;"></div>
+  <div class="micro-grid">
+    <div class="micro-card">
+      <h3>🏢 La Empresa</h3>
+      <p>Havaianas cuenta con reconocimiento global construido sobre décadas de presencia y asociación emotiva con el verano. Loop no parte desde cero: es una evolución de un ícono cultural, lo que reduce drásticamente la inversión en construcción de marca.</p>
+    </div>
+    <div class="micro-card">
+      <h3>🔗 Proveedores</h3>
+      <p>La viabilidad depende de la solidez de la cadena de suministro. Cualquier problema en disponibilidad, costos o calidad impactaría directamente en la experiencia del usuario y en la reputación del producto.</p>
+    </div>
+    <div class="micro-card">
+      <h3>🏪 Canales</h3>
+      <p>Los puntos de venta deben estar preparados para sostener el modelo de recambio: vendedores capacitados, stock de tiras en todas las variedades y presencia digital permanente. El intermediario es el garante de la promesa de Loop.</p>
+    </div>
+    <div class="micro-card">
+      <h3>📣 Públicos Clave</h3>
+      <p>Medios de moda sustentable, influencers del universo eco-fashion y la comunidad activista. Es clave extender la narrativa de Loop a la cultura interna para mantener coherencia estratégica en todos los puntos de contacto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE BAND 2 -->
+<img src="img_beach.jpg" alt="Loop en la playa" class="img-band">
+
+<!-- COMPETENCIA -->
+<section id="competencia">
+  <span class="section-label">04 — Análisis de la Competencia</span>
+  <h2 class="section-title">Loop ocupa<br>un espacio vacío.</h2>
+  <span class="red-line"></span>
+  <p class="competencia-intro">La competencia no se limita a quienes fabrican el mismo producto, sino a todas las alternativas que el cliente considera para resolver una necesidad.</p>
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Marca</th>
+        <th>Segmento</th>
+        <th>Sistema Modular</th>
+        <th>Sustentabilidad</th>
+        <th>Precio Aprox.</th>
+        <th>Diferencial</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="loop-row">
+        <td><strong>Havaianas Loop ★</strong></td>
+        <td>Ojotas premium / circular</td>
+        <td><span class="badge badge-yes">SÍ</span></td>
+        <td><span class="badge badge-yes">SÍ</span></td>
+        <td>$40.000 suela + tiras</td>
+        <td>Único con sistema modular masivo</td>
+      </tr>
+      <tr>
+        <td>Havaianas Clásica</td>
+        <td>Ojotas masivas</td>
+        <td><span class="badge badge-no">NO</span></td>
+        <td><span class="badge badge-no">NO</span></td>
+        <td>$35.000</td>
+        <td>Reconocimiento de marca, precio</td>
+      </tr>
+      <tr>
+        <td>Ipanema</td>
+        <td>Ojotas masivas</td>
+        <td><span class="badge badge-no">NO</span></td>
+        <td><span class="badge badge-no">NO</span></td>
+        <td>$28.000–$35.000</td>
+        <td>Precio, distribución masiva</td>
+      </tr>
+      <tr>
+        <td>Billabong / Roxy</td>
+        <td>Surf / lifestyle</td>
+        <td><span class="badge badge-no">NO</span></td>
+        <td><span class="badge badge-no">NO</span></td>
+        <td>$40.000–$55.000</td>
+        <td>Identidad surf, diseño estacional</td>
+      </tr>
+      <tr>
+        <td>Birkenstock</td>
+        <td>Calzado premium</td>
+        <td><span class="badge badge-no">NO</span></td>
+        <td>Parcial</td>
+        <td>$80.000+</td>
+        <td>Calidad premium, durabilidad</td>
+      </tr>
+      <tr>
+        <td>Toms</td>
+        <td>Calzado consciente</td>
+        <td><span class="badge badge-no">NO</span></td>
+        <td><span class="badge badge-yes">SÍ</span></td>
+        <td>$60.000+</td>
+        <td>Modelo give-back, impacto social</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="comp-quote">"El desafío no es convencer al público de que pruebe una marca nueva, sino de que pruebe una forma nueva de relacionarse con una marca que ya conoce y quiere."</div>
+</section>
+
+<!-- SEGMENTO -->
+<section id="segmento">
+  <span class="section-label">05 — Segmentación</span>
+  <h2 class="section-title">A quién<br>le hablamos.</h2>
+  <span class="red-line" style="background:var(--yellow);"></span>
+  <div class="segmento-grid">
+    <div class="seg-card">
+      <h3>👤 Demográfica</h3>
+      <p>Hombres y mujeres de <strong style="color:var(--yellow)">20 a 40 años</strong>, segmentos socioeconómicos medio y medio-alto. Consumidores económicamente activos con predisposición a invertir en productos que aporten valor más allá de la función básica.</p>
+    </div>
+    <div class="seg-card">
+      <h3>📍 Geográfica</h3>
+      <p>Regiones donde el uso de ojotas forma parte de los hábitos cotidianos: <strong style="color:var(--yellow)">CABA y Gran Buenos Aires</strong>, Norte del país (presencia permanente), Costa Atlántica y Patagonia (temporada estival).</p>
+    </div>
+    <div class="seg-card">
+      <h3>🧠 Psicográfica</h3>
+      <p>Estilos de vida modernos y dinámicos. Interesados en <strong style="color:var(--yellow)">moda casual, diseño y personalización</strong>. Conectados digitalmente, siguen tendencias en Instagram, TikTok y Pinterest. Buscan expresar identidad mediante sus productos.</p>
+    </div>
+    <div class="seg-card">
+      <h3>🛍️ Conductual</h3>
+      <p>Ya familiarizados con la categoría de ojotas y con confianza en marcas reconocidas. <strong style="color:var(--yellow)">Receptivos a la innovación</strong> y dispuestos a probar alternativas que les permitan personalizar su estilo.</p>
+    </div>
+  </div>
+  <div class="perfil-box">
+    <h3>Perfil del Usuario Típico</h3>
+    <p>Joven adulto urbano que usa activamente redes sociales para descubrir tendencias y tomar decisiones de compra. Valora la estética, la comodidad y la posibilidad de personalizar los productos que usa. Es alguien que no quiere gastar de más ni renovar su calzado entero cada temporada — y que ve en Loop la combinación perfecta entre estilo, practicidad y consciencia.</p>
+  </div>
+</section>
+
+<!-- POSICIONAMIENTO -->
+<section id="posicionamiento">
+  <span class="section-label">06 — Posicionamiento</span>
+  <h2 class="section-title">La ojota<br>inteligente.</h2>
+  <span class="red-line"></span>
+  <div class="pos-grid">
+    <div class="pos-text">
+      <p class="pos-declaracion">Loop no le habla al que busca <em>la más barata</em>, ni al que busca <em>la más exclusiva</em>. Le habla a quien quiere tomar una decisión de compra más inteligente.</p>
+      <p>Dentro de un mercado donde todas las ojotas compiten por precio o diseño, Loop elige ocupar un lugar distinto: el espacio de la ojota que no se descarta, sino que se renueva.</p>
+      <p>La percepción buscada es la de la <strong>ojota inteligente</strong>: la más conveniente a largo plazo, con esa satisfacción de no tirar algo que todavía sirve.</p>
+      <div class="matriz-grid">
+        <div class="matriz-box">
+          <h3>Matriz BCG</h3>
+          <span class="matriz-tag">Interrogante → Estrella</span>
+          <p>El mercado del calzado modular es incipiente. La recomendación es invertir activamente para migrar al cuadrante Estrella aprovechando la ausencia de competencia directa.</p>
+        </div>
+        <div class="matriz-box">
+          <h3>Matriz Ansoff</h3>
+          <span class="matriz-tag">Desarrollo de Producto</span>
+          <p>Havaianas mantiene su mercado actual e introduce un nuevo producto. Loop adiciona valor sin modificar los hábitos de consumo del cliente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="dif-list">
+      <div class="dif-item">
+        <div class="dif-dot">IMP</div>
+        <div class="dif-content"><h4>Importante</h4><p>Resuelve una necesidad real: poder cambiar de look sin comprar un par nuevo, en cualquier momento.</p></div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-dot">DIS</div>
+        <div class="dif-content"><h4>Distintiva</h4><p>Ningún competidor masivo en el segmento de ojotas ofrece un sistema modular. Loop ocupa un espacio vacío.</p></div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-dot">SUP</div>
+        <div class="dif-content"><h4>Superior</h4><p>Mayor vida útil y menor costo acumulado que cualquier alternativa de precio similar.</p></div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-dot">COM</div>
+        <div class="dif-content"><h4>Comunicable</h4><p>El mecanismo es visible, tangible y fácilmente explicable. La suela permanece, las tiras se cambian.</p></div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-dot">EXC</div>
+        <div class="dif-content"><h4>Exclusiva</h4><p>La competencia no puede replicarlo mañana: debería rediseñar todo su producto y su sistema de distribución.</p></div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-dot">RED</div>
+        <div class="dif-content"><h4>Redituable</h4><p>Modelo razor &amp; blade: la ganancia sostenida proviene del consumible recurrente (las tiras), no del producto base.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE BAND 3 -->
+<img src="img_catalogo.jpg" alt="Línea de tiras y suelas Loop" class="img-band" style="height:300px;">
+
+<!-- ESTRATEGIAS PUSH / PULL -->
+<section id="estrategias">
+  <span class="section-label">07 — Comunicación</span>
+  <h2 class="section-title">Estrategias<br>Push &amp; Pull.</h2>
+  <span class="red-line"></span>
+  <div class="estrategias-grid">
+    <div class="estrat-card push">
+      <div class="estrat-label">Estrategia</div>
+      <div class="estrat-title">PUSH</div>
+      <p>Se aplica directamente sobre los canales de venta. El objetivo es que el vendedor se convierta en el primer embajador del producto, ya que al tratarse de un sistema novedoso, Loop necesita ser explicado en el punto de contacto.</p>
+      <ul>
+        <li>Porcentaje de comisión por cada venta de ojota base y tiras</li>
+        <li>Capacitación a vendedores sobre el sistema modular y sus beneficios</li>
+        <li>Material de punto de venta: displays, cartelería y demostradores físicos</li>
+        <li>Kits de arranque para distribuidores regionales con stock inicial de tiras</li>
+        <li>Incentivos por cumplimiento de objetivos de recambio de tiras</li>
+      </ul>
+    </div>
+    <div class="estrat-card pull">
+      <div class="estrat-label">Estrategia</div>
+      <div class="estrat-title">PULL</div>
+      <p>Opera sobre el consumidor final a través de una campaña veraniega, emotiva y aspiracional con el sello característico de Havaianas.</p>
+      <p><strong style="color:rgba(255,255,255,0.95);">La campaña sigue a una misma persona en un día completo de vacaciones:</strong></p>
+      <ul>
+        <li>☀️ Por la mañana va a la playa con tiras clásicas</li>
+        <li>🍽️ Al mediodía cambia a tiras metalizadas y sale a almorzar</li>
+        <li>🌅 A la tarde regresa, cambia a tiras con apliques de perlas</li>
+        <li>🎉 A la noche, lista para la fiesta con tiras con cadena dorada</li>
+      </ul>
+      <p style="margin-top:1rem;"><em>Un mismo par, cuatro looks, un solo día.</em></p>
+    </div>
+  </div>
+
+  <!-- Digital -->
+  <div style="margin-top: 3rem; padding: 2.5rem; background: var(--light); border-top: 4px solid var(--black);">
+    <h3 style="font-family:'Nunito',sans-serif; font-weight:900; font-size:1rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:1.5rem;">Comunicación Digital</h3>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem;">
+      <div style="text-align:center; padding:1.5rem; background:var(--white);">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">🎵</div>
+        <h4 style="font-weight:800; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:0.4rem;">TikTok</h4>
+        <p style="font-size:0.8rem; color:var(--muted); line-height:1.5;">GRWM con cambio de tiras, hauls y challenges con el hashtag #LoopMyStyle</p>
+      </div>
+      <div style="text-align:center; padding:1.5rem; background:var(--white);">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">📸</div>
+        <h4 style="font-weight:800; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:0.4rem;">Instagram</h4>
+        <p style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Reels de outfits, stories con links a tienda y colaboraciones con micro-influencers</p>
+      </div>
+      <div style="text-align:center; padding:1.5rem; background:var(--white);">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">📌</div>
+        <h4 style="font-weight:800; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:0.4rem;">Pinterest</h4>
+        <p style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Tableros de inspiración: combinaciones de tiras por outfit, temporada y ocasión</p>
+      </div>
+      <div style="text-align:center; padding:1.5rem; background:var(--white);">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">♻️</div>
+        <h4 style="font-weight:800; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:0.4rem;">QR + Reciclaje</h4>
+        <p style="font-size:0.8rem; color:var(--muted); line-height:1.5;">QR en la suela que conecta al programa de devolución de tiras y eco-puntos canjeables</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CANALES -->
+<section id="canales">
+  <span class="section-label">08 — Distribución</span>
+  <h2 class="section-title">Canales &amp;<br>Cobertura.</h2>
+  <span class="red-line"></span>
+  <p class="canales-intro">Para que Loop funcione como sistema y no simplemente como producto, la disponibilidad de tiras en todos los puntos de contacto es la condición clave. Si el consumidor no encuentra el repuesto con facilidad, la promesa de Loop se rompe.</p>
+
+  <div class="canales-two">
+    <div class="canal-block">
+      <h3>Canal Directo — Ojota Base</h3>
+      <p>La ojota base se comercializa exclusivamente a través de canales oficiales de Havaianas, garantizando control total sobre la experiencia de compra y la comunicación del sistema modular.</p>
+      <div class="canal-items">
+        <div class="canal-item">
+          <span class="canal-icon">🌐</span>
+          <div>
+            <h4>E-commerce propio</h4>
+            <p>havaianas.com.ar — canal directo al consumidor, disponible en todo el país, con packs de lanzamiento suela + tiras y explicación del sistema modular.</p>
+          </div>
+        </div>
+        <div class="canal-item">
+          <span class="canal-icon">🏪</span>
+          <div>
+            <h4>Locales propios</h4>
+            <p>Puntos de venta físicos donde el vendedor puede demostrar el sistema de intercambio y generar la primera experiencia con el producto.</p>
+          </div>
+        </div>
+        <div class="canal-item">
+          <span class="canal-icon">🏬</span>
+          <div>
+            <h4>Distribuidores regionales autorizados</h4>
+            <p>Locales multimarca como Cristóbal Colón, con perfil de marca adecuado para sostener el mensaje de Loop fuera del AMBA.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="canal-block">
+      <h3>Canal Indirecto — Tiras</h3>
+      <p>Las tiras apuntan a una cobertura amplia e intensiva, segmentada por zona geográfica y estacionalidad. Cuantos más puntos de venta, mejor.</p>
+      <div class="canal-items">
+        <div class="canal-item">
+          <span class="canal-icon">🏄</span>
+          <div>
+            <h4>Costa Atlántica</h4>
+            <p>Bazares, tiendas de playa e indumentaria local en Mar del Plata, Pinamar, Villa Gesell y Miramar durante la temporada estival.</p>
+          </div>
+        </div>
+        <div class="canal-item">
+          <span class="canal-icon">🏔️</span>
+          <div>
+            <h4>Sur Argentino</h4>
+            <p>Bariloche, El Bolsón y región de los lagos. Negocios outdoor y artículos de viaje con alta afluencia turística en verano.</p>
+          </div>
+        </div>
+        <div class="canal-item">
+          <span class="canal-icon">☀️</span>
+          <div>
+            <h4>Norte Argentino</h4>
+            <p>Presencia permanente en comercios de barrio, bazares y kioscos. Distribución capilar similar a la lógica de Arcor en consumo masivo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cobertura-box">
+    <h3>Estrategia de Cobertura por Producto</h3>
+    <div class="cobertura-grid">
+      <div class="cob-item">
+        <span class="cob-icon">👟</span>
+        <h4>Ojota Base</h4>
+        <p>Cobertura <strong>selectiva</strong>: solo puntos de venta capacitados que puedan explicar el sistema modular.</p>
+      </div>
+      <div class="cob-item">
+        <span class="cob-icon">🔄</span>
+        <h4>Tiras de Repuesto</h4>
+        <p>Cobertura <strong>intensiva</strong>: máxima presencia posible para que el repuesto siempre esté a mano.</p>
+      </div>
+      <div class="cob-item">
+        <span class="cob-icon">💻</span>
+        <h4>Canal Digital</h4>
+        <p>Disponible en todo el país las 24hs. Línea amplia con filtros por color, estilo y talla.</p>
+      </div>
+      <div class="cob-item">
+        <span class="cob-icon">🌆</span>
+        <h4>CABA y GBA</h4>
+        <p>Línea premium y exclusiva con posibilidad de personalización avanzada apuntando a la moda urbana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="nav-brand">
+    <span class="nav-hav">havaianas</span>
+    <div class="nav-divider" style="background:rgba(255,255,255,0.2);"></div>
+    <span class="nav-loop"><span>L</span><span>O</span><span>O</span><span>P</span></span>
+  </div>
+  <p>Propuesta de Marketing · Tendencias Tecnológicas · 2026</p>
+</footer>
+
+<script>
+  function openTab(e, name) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    e.currentTarget.classList.add('active');
+  }
+</script>
+</body>
+</html>
